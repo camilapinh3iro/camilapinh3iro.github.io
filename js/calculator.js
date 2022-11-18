@@ -7,8 +7,10 @@ let valueNumber1, valueNumber2;
 function updateDisplay(buttonNumber) {
     if (numberofClick == 0) {
         display.innerText = buttonNumber;
-    } else {
+    } else if (numberofClick < 8) {
         display.innerText += buttonNumber;
+    } else {
+        display.style.color = "#FF3764";
     }
 
     numberofClick++;
@@ -19,6 +21,7 @@ clearButton.addEventListener("click", deleteDisplay);
 
 //função para limpar os valores/display
 function deleteDisplay() {
+    display.style.color = "#FFF";
     display.innerText = 0;
     numberofClick = 0;
     numberOneCreated = false;
@@ -29,6 +32,7 @@ plusButton.addEventListener("click", sum)
 function sum() {
     valueNumber1 = +display.innerText;
 
+    display.style.color = "#FFF";
     numberOneCreated = true;
     display.innerText = 0;
     numberofClick = 0;
@@ -41,6 +45,7 @@ minusButton.addEventListener("click", subtraction);
 function subtraction() {
     valueNumber1 = +display.innerText;
 
+    display.style.color = "#FFF";
     numberOneCreated = true;
     display.innerText = 0;
     numberofClick = 0;
@@ -51,6 +56,7 @@ timesButton.addEventListener("click", multiplication);
 function multiplication() {
     valueNumber1 = +display.innerText;
 
+    display.style.color = "#FFF";
     numberOneCreated = true;
     display.innerText = 0;
     numberofClick = 0;
@@ -61,6 +67,7 @@ dividedButton.addEventListener("click", division);
 function division() {
     valueNumber1 = +display.innerText;
 
+    display.style.color = "#FFF";
     numberOneCreated = true;
     display.innerText = 0;
     numberofClick = 0;
@@ -73,15 +80,16 @@ function result() {
     if (numberOneCreated == true) {
         valueNumber2 = +display.innerText;
 
+        display.style.color = "#FFF";
         if (operationSelected == "sum") {
             display.innerText = valueNumber1 + valueNumber2;
-        } else if(operationSelected == "subtraction"){
+        } else if (operationSelected == "subtraction") {
             display.innerText = valueNumber1 - valueNumber2;
-        } else if(operationSelected == "multiplication"){
+        } else if (operationSelected == "multiplication") {
             display.innerText = valueNumber1 * valueNumber2;
-        } else if(operationSelected == "division"){
+        } else if (operationSelected == "division") {
             display.innerText = valueNumber1 / valueNumber2;
-        } 
+        }
 
     }
 }
